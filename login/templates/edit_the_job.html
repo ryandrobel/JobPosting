@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here you can edit the job you created {{request.session.user_username}}</h1>
+    <h1>The Job</h1>
+    <h3><strong>Title:</strong></h3><u>
+        <p>{{ job.title}}</p>
+    <h3><strong>Description:</strong></h3><u>
+        <p>{{ job.desc}}</p>
+    <h3><strong>Location:</strong></h3><u>
+            <p>{{ job.location }}</p>
+    
+    <h1>Edit The Job:</h1>
+    <form action="/edit_job/{{job.id}}" method="POST">
+        {% csrf_token %}
+        <p>Title: <input name="title" type="text"></p>
+        <p>Description: <input name="desc" type="text"></p>
+        <p>Location: <input name="location" type="text"></p>
+        
+        <button type="/dashboard">Update Job</button>
+    </form>
+    <form method="get" action="/dashboard">
+        <button type="submit">Cancle</button>
+    </form>
+
+    {% for message in messages %}
+    <p style='color: red;'>{{ message }}</p>
+    {% endfor %}
+</body>
+</html>

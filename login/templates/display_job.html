@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3 style='text-align: right;'><a href='/logout'>Logout</a></h3>
+    <h3 style='text-align: right;'><a href='/dashboard'>Dashboard</a></h3>
+    <h1>The Job</h1>
+    <h3><strong>Title:</strong></h3><u>
+        <p>{{ job.title}}</p>
+    <h3><strong>Description:</strong></h3><u>
+        <p>{{ job.desc}}</p>
+    <h3><strong>Location:</strong></h3><u>
+            <p>{{ job.location }}</p>
+
+    <h3><a href='/jobs/new'>Add a job</a></h3>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Login and Registration</h1>
+
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+
+    <div class="reg">
+        <h2>Registration Form</h2>
+        <form action='/register' method='POST'>
+            {% csrf_token %}
+            First Name: <input type='text' name='first_name'><br>
+            Last Name: <input type='text' name='last_name'><br>
+            Email: <input type='email' name='email'><br>
+            Username: <input type='text' name='username'><br>
+            Password: <input type='password' name='password'><br>
+            Confirm Password: <input type='password' name='confirm_password'><br>
+            <input type='submit'>
+
+        </form>
+    </div>
+
+    <div class="login">
+        <h2>Login Form</h2>
+        <form action='/login' method='POST'>
+            {% csrf_token %}
+            Username: <input type='text' name='username'><br>
+            Password: <input type='password' name='password'><br>
+            <input type='submit'>
+        </form>
+
+    </div>
+</body>
+
+</html>

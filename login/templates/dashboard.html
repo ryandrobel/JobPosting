@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style='display: inline-block;'>Hello {{request.session.user_username}}</h1>
+
+    <h3 style='text-align: right;'><a href='/logout'>Logout</a></h3>
+    <h3 style='text-align: right;'><a href='/jobs/new'>New Job</a></h3>
+
+    <h3>Everyone's Jobs:</h3>
+
+
+    <table>
+        <tr>
+            
+            <th>Title</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+        {% for job in all_jobs %}
+        <tr>
+            
+            <td>{{ job.title }}</td>
+            <td>{{ job.location }}</td>
+            {% if request.session.user_id == job.creator.id %}
+            <td><a href="/job/{{job.id}}/edit"> Edit</a>
+                <a href='/job/{{job.id}}/delete'>Delete</a>
+                {% endif %}
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+
+</body>
+
+</html>
